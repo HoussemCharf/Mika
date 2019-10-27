@@ -1,0 +1,10 @@
+{
+    "bot": {
+        "Token": "PLACE YOUR TOKEN HERE!",
+        "Prefix":"!"
+    },
+    "general": {
+        "Debug": false,
+        "logger":true
+    }
+}
