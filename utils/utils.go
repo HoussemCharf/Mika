@@ -8,15 +8,14 @@ import (
 )
 
 // ParseMessage parses ...
-func ParseMessage(message string) (string, []string) {
-	message = RemovePrefix(message)
-	splitted := strings.Split(message, " ")
-	if message == "" {
-		return "", nil
+func ParseMessage(message string) (m string, sl []string) {
+	m = RemovePrefix(message)
+	splitted := strings.Split(m, " ")
+	if m == "" {
+		return
 	}
-
 	if len(splitted) == 1 {
-		return message, []string{}
+		return
 	}
 	return splitted[0], splitted[1:]
 }
