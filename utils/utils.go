@@ -21,7 +21,7 @@ func ParseMessage(message string) (m string, sl []string) {
 }
 
 // RemovePrefix returns raw command
-func RemovePrefix(invoked string) string {
+func RemovePrefix(invoked string) (s string) {
 	cfg, err := config.Grab()
 	if err != nil {
 		log.Println("[RemovePrefix]: ", err)
