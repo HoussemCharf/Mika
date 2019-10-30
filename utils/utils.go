@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"log"
 	"strings"
 
 	"github.com/houssemcharf/Mika/config"
@@ -24,7 +25,8 @@ func ParseMessage(message string) (string, []string) {
 func RemovePrefix(invoked string) string {
 	cfg, err := config.Grab()
 	if err != nil {
-		panic(err)
+		log.Println("[RemovePrefix]: ", err)
+		return
 	}
 	return strings.Replace(invoked, cfg.Token, "", 1)
 }
