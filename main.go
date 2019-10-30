@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"os/signal"
 	"syscall"
@@ -13,21 +14,19 @@ import (
 func main() {
 	cfg, err := config.Grab()
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	// instancing a new session for discord
 	session, err := discordgo.New("Bot " + cfg.Token)
 	if err != nil {
-		fmt.Println("Error creating Discord session,", err)
-		return
+		log.Fatal("Error creating Discord session,", err)
 	}
 	// add subscription of commands here
 	session.AddHandler(handleCommand)
 	// opening a websocket connection to discord and start listening.
 	err = session.Open()
 	if err != nil {
-		fmt.Println("Error opening a websock connection,", err)
-		return
+		log.Fatal("Error opening a websock connection,", err)
 	}
 	fmt.Println("Bot is running. Press CTRL+c to exit.")
 	// handling CTRL+C and other term signals
