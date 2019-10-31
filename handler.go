@@ -11,7 +11,7 @@ func handleCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	defer func() {
 		err := recover()
 		if err != nil {
-			//log.Context("handler_command").Errorf("Exception happened %s", err)
+
 		}
 	}()
 
@@ -19,7 +19,6 @@ func handleCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 	handler, err := command.HandlerFor(cmd)
 	if err != nil {
-		//log.Context("handle_command").Errorf("cannot handle command %q: %v", cmd, err)
 
 	}
 	err = handler.Handle(m, cmd, args...)
