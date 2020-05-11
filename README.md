@@ -1,0 +1,1 @@
+a base code for discord bot with cogs
